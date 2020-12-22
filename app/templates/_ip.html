@@ -1,0 +1,15 @@
+        <tr>
+            <td>{{ ipinfo.ip }}</td>
+            <td>{{ ipinfo.hostname }}</td>
+            <td>{{ ipinfo.device_type }}</td>
+            <td>{{ ipinfo.user }}</td>
+            <td>{{ ipinfo.project }}</td>
+            <td> 
+                <a data-id={{ ipinfo.id }} onclick="Edit(this)">修改<span class="glyphicon glyphicon-pencil"></span></a>             
+                <a data-id={{ ipinfo.id }} onclick="Delete(this)">删除<span class="glyphicon glyphicon-pencil"></span></a> 
+            </td>
+        </tr>
+
+
+
+

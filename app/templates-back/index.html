@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>Hi, {{ current_user.username }}!</h1>
+    <table border="1" width = "60%" cellspacing='0' cellpadding='0' align='left'>
+        <tr>        
+        <th>ip</th>
+        <th>hostname</th>
+        <th>设备类型</th>
+        <th>使用者</th>
+        <th>应用</th>
+    </tr>
+    {% for ipinfo in ipinfos %}
+    <tr align='center'>
+        <td>{{ ipinfo.ip }}</td>
+        <td>{{ ipinfo.hostname }}</td>
+        <td>{{ ipinfo.device_type }}</td>
+        <td>{{ ipinfo.user }}</td>
+        <td>{{ ipinfo.project }}</td>
+    </tr>
+    {% endfor %}
+{% endblock %}

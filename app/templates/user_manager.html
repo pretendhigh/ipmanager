@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Hi, {{ current_user.username }}!</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">          
+                <li><a href= "{{ url_for('user_add') }}">新增用户</a></li>               
+            </ul>
+        </div>    
+        
+        
+        <!-- 修改 user 弹窗 -->
+        <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="editUserModalLabel">修改 user 信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form">
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">username:</label>
+                            <input type="text" class="form-control" id="editUsername">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">password:</label>
+                            <input type="password" class="form-control" id="editPassword">
+                        </div>
+                        <div class="form-group">
+                                <label for="message-text" class="control-label">role:</label><br>
+                                <select id="editRole" name="role">
+                                    <option value="1">admin</option>
+                                    <option value="2">general user</option>
+                                </select>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button id="btnUserUpdate" type="button" class="btn btn-primary">确认</button>
+                    </div>
+                    </div>
+                </div>
+            </div> 
+            
+            <!-- 删除 user 弹窗 -->
+            <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header" style="text-align:center;">
+                          <h4 class="modal-title" style="color:red;" id="deleteModalLabel">即将永久删除该 user 信息</h4>
+                        </div>
+                        <div class="modal-body">
+                                <form role="form">
+                                <div class="form-group">
+                                    <label for="message-text" class="control-label">username:</label>
+                                    <input type="text" class="form-control" id="deleteUsername" disabled>
+                                </div>
+                                <div class="form-group">
+                                        <label for="message-text" class="control-label">password:</label>
+                                        <input type="password" class="form-control" id="deletePassword">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="message-text" class="control-label">role:</label><br>
+                                            <select id="deleteRole" name="role" disabled="disabled">
+                                                <option value="1">admin</option>
+                                                <option value="2">general user</option>
+                                            </select>
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                          <button type="button" class="btn btn-primary" onclick="ConfirmDeleteUser()">确认</button>
+                        </div>
+                      </div>
+                    </div>
+        </div>
+
+
+        <div>
+                <table class="table table-hover">
+                    <tr>
+                        <td>用户</td>
+                        <td>角色</td>
+                        <td>操作</td>
+                    </tr>
+                {% for user in users %}
+                    {% include '_user.html' %}
+                {% endfor %}
+                </table>
+        </div>
+
+        <div>
+                <nav aria-label="...">
+                        <ul class="pager">
+                            <li class="previous{% if not prev_url %} disabled{% endif %}">
+                                <a href="{{ prev_url or '#' }}">
+                                    <span aria-hidden="true">&larr;</span> 上一页
+                                </a>
+                            </li>
+                            <li class="next{% if not next_url %} disabled{% endif %}">
+                                <a href="{{ next_url or '#' }}">
+                                    下一页 <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </li>
+                        </ul>
+                </nav>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+
+{% block script_content %}
+<script>
+    // user 修改
+    function EditUser(elm) {
+        localStorage.setItem('editUserId',$(elm).attr('user-id'));
+        $.ajax({
+            url: '/getUserById',
+            data: {
+                id: $(elm).attr('user-id')
+            },
+            type: 'POST',
+            success: function(res) {
+    
+            // Parse the received JSON string
+            var data = JSON.parse(res);
+            
+            //Populate the Pop up
+            $('#editUsername').val(data[0]['username']);
+            $('#editPassword').val(data[0]['password']);
+            $('#editRole').val(data[0]['role_id']);
+            // Trigger the Pop Up
+            $('#editUserModal').modal();
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+    // 确认 user 修改
+    $(function(){   
+          $('#btnUserUpdate').click(function(){
+            $.ajax({
+                url : '/updateUser',
+                data : {username:$('#editUsername').val(), password:$('#editPassword').val(), role_id:$('#editRole').val(), id:localStorage.getItem('editUserId')},
+                type : 'POST', 
+                success: function(res){
+                    var result = JSON.parse(res);
+                    if(result.status == 'OK'){
+                    $('#editUserModal').modal('hide');
+                    location.reload(); 
+                    }
+                    else{
+                    alert(result.status);	
+                    }
+                    },                 
+                error: function(error){
+                console.log(error);
+                }
+            });
+          });
+    });
+
+
+    // user 删除
+    function DeleteUser(elm) {
+        localStorage.setItem('deleteUserId',$(elm).attr('user-id'));
+        $.ajax({
+            url: '/getUserById',
+            data: {
+                id: $(elm).attr('user-id')
+            },
+            type: 'POST',
+            success: function(res) {
+    
+            // Parse the received JSON string
+            var data = JSON.parse(res);
+            
+            //Populate the Pop up
+            $('#deleteUsername').val(data[0]['username']);
+            $('#deletePassword').val(data[0]['password']);
+            $('#deleteRole').val(data[0]['role_id']);
+            // Trigger the Pop Up
+            $('#deleteUserModal').modal();
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+    // 确认 user 删除
+    function ConfirmDeleteUser(){
+	$.ajax({
+		url : '/deleteUser',
+		data : {id:localStorage.getItem('deleteUserId')},
+		type : 'POST',
+		success: function(res){
+			var result = JSON.parse(res);
+			if(result.status == 'OK'){
+                $('#deleteUserModal').modal('hide');
+                location.reload(); 
+			}
+			else{
+				alert(result.status);	
+			}
+		},
+		error: function(error){
+			console.log(error);
+		}
+	});
+    } 
+    
+    // 隐藏搜索框
+    $(document).ready(function(){       
+        $('#search').hide();
+    });
+</script>
+
+{% endblock %}

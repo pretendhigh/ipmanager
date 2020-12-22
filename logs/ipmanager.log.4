@@ -1,0 +1,103 @@
+2020-11-12 17:20:18,137 ERROR: Exception on /user_add [GET] [in /volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/app/routes.py", line 82, in user_add
+    return render_template("user_add.html", title='Home Page', form=form)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/jinja2/environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: user_add.html
+2020-11-12 17:20:25,795 ERROR: Exception on /user_add [GET] [in /volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/app/routes.py", line 82, in user_add
+    return render_template("user_add.html", title='Home Page', form=form)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/jinja2/environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: user_add.html
+2020-11-12 17:22:05,573 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-12 17:24:01,305 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-12 17:24:17,426 ERROR: Exception on /user_add [POST] [in /volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/app/routes.py", line 76, in user_add
+    user = User(username=user.username.data, role=dict(form.role.choices).get(form.role.data))
+UnboundLocalError: local variable 'user' referenced before assignment
+2020-11-12 17:25:40,120 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-12 20:19:43,200 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-12 20:20:55,365 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-12 20:24:04,495 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-13 14:56:41,180 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-13 15:58:02,802 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-13 16:01:30,638 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-13 16:02:19,604 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-13 16:05:31,726 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-13 16:09:48,856 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-13 17:19:24,212 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-13 17:20:49,333 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-13 18:59:38,169 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-13 19:01:05,121 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 08:34:22,878 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 08:43:42,538 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]

@@ -1,0 +1,193 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    {% if title %}{{ title }} - ipmanage{% else %}Welcome to IpManager{% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('index') }}">IPManager</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                {% if g.search_form %}
+                <form class="navbar-form navbar-left" method="get"
+                        action="{{ url_for('search') }}" id="search">
+                    <div class="form-group"> 
+                        {{ g.search_form.q(size=20, class='form-control',
+                            placeholder=g.search_form.q.label.text) }}
+                    </div>
+                </form>
+                {% endif %}
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.role == 'admin' %}
+                    <li><a href="{{ url_for('user_manager') }}">用户管理</a></li>
+                    {% endif %}                    
+                    {% if current_user.is_anonymous %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+   
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    <!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script>
+    // ip 修改
+    function Edit(elm) {
+        localStorage.setItem('editId',$(elm).attr('data-id'));
+        $.ajax({
+            url: '/getIpinfoById',
+            data: {
+                id: $(elm).attr('data-id')
+            },
+            type: 'POST',
+            success: function(res) {
+    
+            // Parse the received JSON string
+            var data = JSON.parse(res);
+            
+            //Populate the Pop up
+            $('#editIp').val(data[0]['ip']);
+            $('#editHostname').val(data[0]['hostname']);
+            $('#editDevice_type').val(data[0]['device_type']);
+            $('#editUser').val(data[0]['user']);
+            $('#editProject').val(data[0]['project']);
+            // Trigger the Pop Up
+            $('#editModal').modal();
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+    // 确认 ip 修改
+    $(function(){   
+          $('#btnUpdate').click(function(){
+            $.ajax({
+                url : '/updateIpinfo',
+                data : {ip:$('#editIp').val(), hostname:$('#editHostname').val(), device_type:$('#editDevice_type').val(), user:$('#editUser').val(), project:$('#editProject').val(), id:localStorage.getItem('editId')},
+                type : 'POST',
+                success: function(res){
+                    var result = JSON.parse(res);
+                    if(result.status == 'OK'){
+                        $('#editModal').modal('hide'); 
+                        location.reload(); 
+                    }
+                    else{
+                        alert(result.status);	
+                    }
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+          });
+      });
+    
+    // ip 删除
+    function Delete(elm){
+        localStorage.setItem('deleteId',$(elm).attr('data-id'));
+        $.ajax({
+            url: '/getIpinfoById',
+            data: {
+                id: $(elm).attr('data-id')
+            },
+            type: 'POST',
+            success: function(res) {
+    
+            // Parse the received JSON string
+            var data = JSON.parse(res);
+            
+            //Populate the Pop up
+            $('#deleteIp').val(data[0]['ip']);
+            $('#deleteHostname').val(data[0]['hostname']);
+            $('#deleteDevice_type').val(data[0]['device_type']);
+            $('#deleteUser').val(data[0]['user']);
+            $('#deleteProject').val(data[0]['project']);
+            // Trigger the Pop Up
+            $('#deleteModal').modal();
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    
+    }
+
+    // 确认 ip 删除
+    function ConfirmDelete(){
+	$.ajax({
+		url : '/deleteIpinfo',
+		data : {id:localStorage.getItem('deleteId')},
+		type : 'POST',
+		success: function(res){
+			var result = JSON.parse(res);
+			if(result.status == 'OK'){
+                $('#deleteModal').modal('hide');
+                location.reload(); 
+			}
+			else{
+				alert(result.status);	
+			}
+		},
+		error: function(error){
+			console.log(error);
+		}
+	});
+    }    
+   
+    </script>
+
+    {% block script_content %}{% endblock %}
+
+{% endblock %}
+
+
+
+{% block style %}
+<style>
+    .trash {
+        color: rgb(209, 91, 71);
+    }
+    .panel-body .checkbox {
+        display: inline-block;
+        margin: 0px;
+    }
+    .list-group {
+        margin-bottom: 0px;
+    }
+</style>   
+{% endblock %}

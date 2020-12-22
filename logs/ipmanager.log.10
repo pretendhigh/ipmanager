@@ -1,0 +1,110 @@
+2020-11-10 09:37:07,081 ERROR: Exception on /search [GET] [in /volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/app/routes.py", line 138, in search
+    if not g.search_form.validate():
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'search_form'
+2020-11-10 09:47:07,485 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-10 10:08:44,898 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-10 10:09:40,235 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-10 10:09:46,353 ERROR: Exception on /search [GET] [in /volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/app/routes.py", line 153, in search
+    return render_template('search.html', title=_('Search'), ipinfos=ipinfos,
+NameError: name '_' is not defined
+2020-11-10 10:11:17,229 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-10 10:16:41,479 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-10 10:18:06,394 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-10 10:18:21,534 ERROR: Exception on /deleteIpinfo [POST] [in /volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/app/routes.py", line 131, in ip_delete
+    db.session.commit()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/session.py", line 511, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/event/attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "/volumec/python_programe/python-exercise/ipmanager/app/models.py", line 50, in after_commit
+    remove_from_index(cls.__tablename__, obj)
+AttributeError: type object 'SearchableMixin' has no attribute '__tablename__'
+2020-11-10 10:20:12,375 ERROR: Exception on /updateIpinfo [POST] [in /volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/app/routes.py", line 121, in updateIpinfo
+    db.session.commit()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/session.py", line 511, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/event/attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "/volumec/python_programe/python-exercise/ipmanager/app/models.py", line 48, in after_commit
+    add_to_index(cls.__tablename__, obj)
+AttributeError: type object 'SearchableMixin' has no attribute '__tablename__'
+2020-11-10 10:25:18,796 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-10 10:35:42,162 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-10 17:07:06,021 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-10 18:21:10,991 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-12 08:49:36,907 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-12 08:50:51,638 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]

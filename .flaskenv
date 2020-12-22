@@ -1,0 +1,5 @@
+FLASK_APP=ipmanager.py
+FLASK_RUN_HOST=localhost
+FLASK_RUN_PORT=7000
+FLASK_DEBUG=0
+ELASTICSEARCH_URL=http://localhost:9200

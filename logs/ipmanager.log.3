@@ -1,0 +1,104 @@
+2020-11-14 08:44:32,811 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 08:54:52,819 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 14:02:29,657 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 14:33:45,956 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 14:46:07,395 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 14:48:50,354 ERROR: Exception on /user_add [POST] [in /volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/engine/base.py", line 1277, in _execute_context
+    cursor, statement, parameters, context
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: column username is not unique
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/app/routes.py", line 79, in user_add
+    db.session.commit()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/session.py", line 2536, in flush
+    self._flush(objects)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/session.py", line 2678, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/session.py", line 2638, in _flush
+    flush_context.execute()
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 1136, in _emit_insert_statements
+    statement, params
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/engine/base.py", line 1130, in _execute_clauseelement
+    distilled_params,
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/engine/base.py", line 1317, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/engine/base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/engine/base.py", line 1277, in _execute_context
+    cursor, statement, parameters, context
+  File "/volumec/python_programe/python-exercise/ipmanager/venv/lib64/python3.6/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) column username is not unique
+[SQL: INSERT INTO user (username, email, password_hash, role) VALUES (?, ?, ?, ?)]
+[parameters: ('bbb', None, 'pbkdf2:sha256:150000$RlovW6nm$3e3ded6d07024d63266895affbba2a81e17ca00cc121ac5ab232cd8e9dbbb736', 'general user')]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+2020-11-14 15:56:56,718 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:07:24,233 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:31:39,810 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:34:34,604 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:41:02,273 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:45:05,598 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:46:14,208 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:51:08,995 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:52:14,414 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:52:20,695 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:55:22,437 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 16:59:52,282 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:00:15,720 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:01:22,664 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:04:36,245 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:05:05,729 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:07:00,431 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:09:48,692 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:10:02,600 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:14:02,763 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:14:21,439 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:14:42,167 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-14 17:14:50,401 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-16 09:28:50,861 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-16 09:29:38,014 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]
+2020-11-16 09:29:48,799 INFO: IpManager startup [in /volumec/python_programe/python-exercise/ipmanager/app/__init__.py:32]

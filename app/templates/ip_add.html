@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block app_content %}    
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+                <p>
+                    {{ form.ip.label }}<br>
+                    {{ form.ip(size=32) }}<br>
+                    {% for error in form.ip.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p> 
+                    {{ form.hostname.label }}<br>
+                    {{ form.hostname(size=32) }}<br>
+                    {% for error in form.hostname.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p> 
+                    {{ form.device_type.label }}<br>
+                    {{ form.device_type(size=32) }}<br>
+                    {% for error in form.device_type.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p> 
+                    {{ form.user.label }}<br>
+                    {{ form.user(size=32) }}<br>
+                    {% for error in form.user.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.project.label }}<br>
+                    {{ form.project(size=32) }}<br>
+                    {% for error in form.project.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>              
+                <p> {{ form.submit() }} </p>                
+
+    </form>
+{% endblock %}
+
+
+{% block script_content %}
+<script>
+        $(document).ready(function(){       
+            $('#search').hide();
+        });
+</script>
+
+{% endblock %}

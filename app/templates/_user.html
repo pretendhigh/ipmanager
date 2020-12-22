@@ -1,0 +1,8 @@
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.role }}</td>
+            <td> 
+                <a user-id={{ user.id }} onclick="EditUser(this)">修改<span class="glyphicon glyphicon-pencil"></span></a>          
+                <a user-id={{ user.id }} onclick="DeleteUser(this)">删除<span class="glyphicon glyphicon-pencil"></span></a> 
+            </td>
+        </tr>
